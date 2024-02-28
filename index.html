@@ -14,9 +14,14 @@
         <h2 class="text-6xl">hunting Phone</h2>
     </header>
     <main class="container mx-auto mt-4 mb-4">
+       
         <div class="bg-slate-500 p-4 rounded-xl mb-4">
             <input id="input-field" type="text" placeholder="search.." class="input input-bordered w-full max-w-xs" />
             <button onclick="handleSearch()" class="btn btn-secondary">Search</button>
+        </div>
+        <!-- loader -->
+        <div id="loader-round" class="text-center my-20 hidden">
+            <span class="loading loading-spinner loading-lg text"></span>
         </div>
         <section>
             <!-- card container -->
@@ -24,6 +29,9 @@
             </div>
             <!-- card container -->
         </section>
+        <div id="load-more-btn" class="hidden">
+            <button class="btn btn-primary">load more</button>
+        </div>
     </main>
     <footer></footer>
     <script src="js/phone.js"></script>

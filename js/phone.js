@@ -8,10 +8,24 @@ const lodePhone = async (fieldText) => {
 }
 
 function showPhone(phone) {
-    console.log(phone);
+    // console.log(phone);
     const mainContainer = document.getElementById('main-container');
     // mainContainer.innerText = '';
     mainContainer.textContent = '';
+     
+    
+    if(phone.length > 10){
+       const loadMore = document.getElementById('load-more-btn');
+       loadMore.classList.remove('hidden');
+    }
+    else{
+        const loadMore = document.getElementById('load-more-btn');
+        loadMore.classList.add('hidden');
+    }
+    phone = phone.slice(0,10);
+
+
+
     phone.forEach(phone => {
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card card-compact w-96 bg-gray-400 shadow-xl p-4`;
@@ -30,12 +44,24 @@ function showPhone(phone) {
         `
         mainContainer.appendChild(phoneCard);
     })
+    toggleLoaderHandler(false);
 }
 const handleSearch = () =>{
+    toggleLoaderHandler(true) ;
     inputField = document.getElementById('input-field');
     fieldText = inputField.value;
     lodePhone(fieldText);
     inputField.value ='';
 }
 
-lodePhone()
+const toggleLoaderHandler = (isLoading) =>{
+    const loaderRound = document.getElementById('loader-round');
+  if(isLoading){
+    loaderRound.classList.remove('hidden');
+  }
+  else{
+    loaderRound.classList.add('hidden');
+  }
+}
+
+// lodePhone()
